@@ -108,7 +108,7 @@ Typical breakdown:
 
 At this point, GPT begins struggling to decide what matters most.
 It doesn’t crash — it starts guessing what to forget.
-Your instruction set, once locked and trusted, becomes part of the coping block.
+Your instruction set, once locked and trusted, becomes part of the chopping block.
 
 ---
 
