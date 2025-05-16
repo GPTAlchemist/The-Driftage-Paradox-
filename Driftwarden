@@ -1,0 +1,51 @@
+---
+
+## 🛠️ Deployment & Usage
+
+Driftwarden is designed to be used **before your custom GPT fails** — not after.
+
+### Input:
+- Your full instruction set (.txt, .md)
+- Supporting logic files (.yaml, .json)
+- Optional output schema / fallback map
+
+### Output:
+- Token profile of your GPT scaffold
+- Simulated drift window
+- Reset thresholds
+- YAML drift report ready for injection or monitoring
+
+You can use it to:
+- ✅ Validate new GPTs before rollout  
+- ✅ Set safe interaction limits for users  
+- ✅ Detect early failure points in long-running sessions  
+- ✅ Extend the usable life of complex logic chains  
+
+---
+
+## 🔥 Who This Is For
+
+- Prompt engineers running structured GPT systems  
+- AI teams deploying GPTs in production environments  
+- QA leads tired of inconsistent role or output behavior  
+- Builders who want **precision, not vibes**
+
+If your GPT has to perform **consistently** across 10+ turns?  
+**Driftwarden belongs in your stack.**
+
+---
+
+## 🧠 Final Note
+
+GPTs don’t fall apart — they **fade**.
+
+Their roles weaken. Their tone slips.  
+Their logic frays at the edge of saturation.
+
+> You don’t need to guess when it happens.  
+> You need Driftwarden.
+
+---
+
+> Created by [Andrew Polk – GPTAlchemist](https://github.com/yourgithub)  
+> “Drift is death. Driftwarden is vigilance.”
