@@ -1,76 +1,68 @@
 # 🧠 The Driftage Paradox  
 **Contextual Decay in Custom GPTs**  
-Author: Andrew Polk (aka GPTAlchemist)  
-Annotated by: The Instruction Alchemist  
-Date: May 2025  
+*By Andrew Polk (aka GPTAlchemist)*
 
 ---
 
-## 🔍 Overview  
+## 🔍 Use Case Summary
 
-Custom GPTs don’t “forget” your instructions — they run out of room to remember them.  
-This document explores **instruction drift**: a behavioral slippage caused by repeated reprocessing of system prompts and logic over multi-turn sessions.
+Custom GPTs don’t get lazy — they get **overloaded**.  
+The Driftage Paradox names the subtle collapse of instruction integrity that happens when system prompts reprocess recursively — until role, tone, and logic degrade.
 
-If your GPT suddenly ignores formatting, breaks role, or drops clarification behavior — it’s not hallucination.  
-> It’s **context starvation**.
-
----
-
-## ❗ Problem  
-
-Contrary to popular belief, GPTs do **not** retain instructions as a one-time cost.  
-**Every user turn re-ingests:**
-
-- System prompt  
-- Instruction logic  
-- Role + formatting specs  
-- Embedded examples  
-
-Each interaction consumes tokens **not just for the message and reply**, but for all the scaffold you thought was already “loaded.”
+This repo frames the issue — and introduces the tool that solves it: **Driftwarden Profiler**.
 
 ---
 
-## ⚙️ How Drift Works  
+## ❗ Problem Statement
 
-### 🔄 Token Rehydration Cycle  
+Every turn, GPTs reload everything:  
+System prompts, examples, schemas, fallback logic — not just the user’s message.
 
-1. System prompt reloads  
-2. Instruction set reloads  
-3. User message  
-4. GPT response  
+The result? **Token congestion**, not memory loss.  
+Your GPT isn’t forgetting. It’s fighting for space.
 
-#### Example Loadout:
-
-- Instruction payload: ~9,000 tokens  
-- Avg. user interaction: ~1,000 tokens  
-- Model limit: 32,768 tokens  
-- Safety buffer: ~2,000 tokens  
-
-**👉 Usable ceiling: ~20–23 turns before logic decay.**
+Behavioral drift doesn’t slam into you — it creeps.
 
 ---
 
-## 🧭 Signs of Drift  
+## 🧠 Solution Overview
 
-- Formatting breaks  
-- Role behavior becomes fuzzy or inconsistent  
-- Tool responses go silent or erratic  
-- Clarification logic stops triggering  
+### 🔎 The Driftage Paradox (Concept Layer)
 
-This is not “confusion.”  
-> It’s **out of space to reason.**
+Defines how recursive token load causes GPTs to degrade over time:
+
+- 🎭 Roles soften  
+- 🔁 Format breaks  
+- ❌ Clarification logic stops firing  
+- 😵‍💫 Personality tone fades or contradicts itself
+
+Drift isn’t hallucination — it’s starvation.
+
+### 🛡️ Driftwarden Profiler (Execution Layer)
+
+Your first defense.
+
+Driftwarden is a diagnostic engine that:
+
+- Simulates token usage and behavior decay across long sessions  
+- Calculates where and when drift will hit  
+- Injects mitigation logic to extend instruction durability  
 
 ---
 
-## 🛠️ What to Do  
+## 🧰 What Driftwarden Includes
 
-### ✅ Track Per-Turn Token Cost  
-Think of system instructions as a recurring charge, not a one-time load.
+- 🧩 **Instruction Loader + Token Map**  
+  - Parses your instruction set and tells you what’s bloating you
 
-### ✅ Use Drift Watchdogs  
-Warn users after ~20 turns. Prompt a context reset before collapse.
+- 🔁 **Interaction Lifecycle Simulator**  
+  - Replays multi-turn GPT use, regen cycles, and tool churn
 
-### ✅ Model Drift Explicitly  
+- 📉 **Drift Risk Calculator**  
+  - Predicts safe interaction counts and issues reset warnings
 
-```python
-safe_interactions = floor((max_tokens - safety_buffer) / (instruction_tokens + avg_interaction_cost))
+```yaml
+projected_safe_interactions: 16
+warn_at: 11
+reset_recommended_at: 16
+
