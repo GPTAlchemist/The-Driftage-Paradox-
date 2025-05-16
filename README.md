@@ -1,90 +1,76 @@
 # 🧠 The Driftage Paradox  
 **Contextual Decay in Custom GPTs**  
-By Andrew Polk (aka GPTAlchemist)
+Author: Andrew Polk (aka GPTAlchemist)  
+Annotated by: The Instruction Alchemist  
+Date: May 2025  
 
 ---
 
-## 🔍 Use Case Summary
+## 🔍 Overview  
 
-Custom GPTs don’t get lazy — they get overloaded.
+Custom GPTs don’t “forget” your instructions — they run out of room to remember them.  
+This document explores **instruction drift**: a behavioral slippage caused by repeated reprocessing of system prompts and logic over multi-turn sessions.
 
-**The Driftage Paradox** names the slow collapse of instruction integrity that happens when system prompts are reprocessed recursively — until role, tone, and logic decay.
-
-This repo frames the issue — and introduces the tool that combats it: **Driftwarden Profiler.**
-
----
-
-## ❗ Problem Statement
-
-Every GPT turn reloads everything:  
-- System prompts  
-- Role instructions  
-- Format rules  
-- Fallback logic  
-- Examples and schema  
-
-Not just the user's message.
-
-The result? **Token congestion**, not memory loss.  
-Your GPT isn’t forgetting — it’s **fighting for space**.
-
-> Drift doesn’t slam into you. It creeps.
-
----
-
-## 🧠 Solution Overview
-
-### 🔎 **The Driftage Paradox** (Concept Layer)
-
-Defines how recursive token loading causes GPTs to degrade over time:
-
-- 🎭 Roles soften  
-- 🔁 Format breaks  
-- ❌ Clarification logic stops firing  
-- 😵‍💫 Personality tone fades or contradicts itself  
-
-Drift isn’t hallucination.  
+If your GPT suddenly ignores formatting, breaks role, or drops clarification behavior — it’s not hallucination.  
 > It’s **context starvation**.
 
 ---
 
-### 🛡️ **Driftwarden Profiler** (Execution Layer)
+## ❗ Problem  
 
-Your first line of defense against GPT decay.
+Contrary to popular belief, GPTs do **not** retain instructions as a one-time cost.  
+**Every user turn re-ingests:**
 
-**Driftwarden** is a diagnostic engine that:
+- System prompt  
+- Instruction logic  
+- Role + formatting specs  
+- Embedded examples  
 
-- Simulates token usage and behavioral decay over multi-turn sessions  
-- Calculates when and where drift will hit  
-- Injects logic to extend instruction durability and trigger warnings before collapse
-
----
-
-## 🧰 What Driftwarden Includes
-
-### 🧩 **Instruction Loader + Token Map**
-Parses your instruction set, logic files, and example data  
-→ Calculates token overhead  
-→ Identifies what’s bloating you
+Each interaction consumes tokens **not just for the message and reply**, but for all the scaffold you thought was already “loaded.”
 
 ---
 
-### 🔁 **Interaction Lifecycle Simulator**
-Replays multi-turn GPT usage:
-- Clarifications
-- Regenerations
-- Tool call inflation
-→ Models token accumulation over time
+## ⚙️ How Drift Works  
+
+### 🔄 Token Rehydration Cycle  
+
+1. System prompt reloads  
+2. Instruction set reloads  
+3. User message  
+4. GPT response  
+
+#### Example Loadout:
+
+- Instruction payload: ~9,000 tokens  
+- Avg. user interaction: ~1,000 tokens  
+- Model limit: 32,768 tokens  
+- Safety buffer: ~2,000 tokens  
+
+**👉 Usable ceiling: ~20–23 turns before logic decay.**
 
 ---
 
-### 📉 **Drift Risk Calculator**
-Projects safe interaction counts, then issues turn-based warnings:
+## 🧭 Signs of Drift  
 
-```yaml
-instruction_tokens: 8700
-avg_interaction_cost: 1150
-drift_threshold_tokens: 60000
-projected_safe_interactions: 16
-warn_at: 11
-reset_recommended_at: 16
+- Formatting breaks  
+- Role behavior becomes fuzzy or inconsistent  
+- Tool responses go silent or erratic  
+- Clarification logic stops triggering  
+
+This is not “confusion.”  
+> It’s **out of space to reason.**
+
+---
+
+## 🛠️ What to Do  
+
+### ✅ Track Per-Turn Token Cost  
+Think of system instructions as a recurring charge, not a one-time load.
+
+### ✅ Use Drift Watchdogs  
+Warn users after ~20 turns. Prompt a context reset before collapse.
+
+### ✅ Model Drift Explicitly  
+
+```python
+safe_interactions = floor((max_tokens - safety_buffer) / (instruction_tokens + avg_interaction_cost))
