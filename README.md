@@ -44,41 +44,35 @@ Each time, it guesses what’s relevant based on token position and recency. As 
 
 ---
 
-## ❓ Why It’s Called a “Paradox” — Even Though It’s Not
+❓ Why It’s Called a “Paradox” — Even Though It’s Not
 
-Let’s be clear: *The Driftage Paradox* isn’t a real paradox.
+Driftage *feels* like a paradox — that’s the whole point.  
+It’s not a bug, crash, or token limit. It’s a system doing exactly what it was designed to do: **forget**.
 
-Drift in LLMs is **expected behavior** in stateless systems.  
-But to users — especially those expecting memory or consistency — the breakdown feels irrational:
+Technically? It’s just stateless inference under context pressure.  
+But to users, it hits like betrayal:
 
-- It works flawlessly at first  
-- No error messages  
-- No warnings  
-- Then suddenly... it doesn’t
+- It worked perfectly yesterday  
+- Nothing changed  
+- Now it’s breaking role, skipping logic, going off-script
 
-The system hasn’t failed.  
-You’ve just encountered **signal loss** under load.
-
-> The paradox isn’t in the code.  
-> It’s in the *disconnect between system design and user expectation*.
-
-This repo exists to name that gap — not to excuse it.
+The **real paradox** isn’t in the code.  
+It’s in the gap between *how GPTs actually work* and *how they seem to work*.
 
 ---
 
-## ⚠️ When Drift Actually Starts
+⚠️ When Drift Actually Starts
 
 Forget the myth that drift starts at 100K+ tokens.  
 That’s a post-mortem.
 
-- **Real drift begins around 20,000 tokens**  
-- Users typically notice it between Turns 7–12  
-- By Turn 20 or ~60K tokens, your GPT is just doing improv  
+In logic-heavy sessions, **signal erosion typically begins around 15–25K tokens** — long before the context window fills.  
+Most users notice behavioral drift **by Turn 7–12**, depending on stack structure and input size.
 
-You’re not steering your instruction set anymore.  
-You’re watching GPT interpolate based on **signal remnants**.
+No, it’s not a magic number — it’s an early warning.
 
-> GPTs don’t remember logic — they **weight** surviving tokens based on recency and salience.
+By Turn 20 or ~60K tokens, GPT may start improvising from degraded signal.  
+You’re not steering your instruction set anymore — you’re watching GPT interpolate based on surviving fragments.
 
 ---
 
