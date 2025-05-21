@@ -204,6 +204,6 @@ With DriftWarden:
 This README was generated using the README Synth GPT, a tool designed to convert user-authored documentation, design logic, and development notes into clear, publishable Markdown.  
 All ideas, descriptions, and feature logic originated from the creator of this tool.  
 README Synth GPT structured, refined, and formatted the content—but it did not invent the product, its claims, or its language.  
-For full transparency on how this system works, see the GitHub project: [README Synth GPT →](https://github.com/jschrier/SynthGPT)
+For full transparency on how this system works, see the GitHub project: [README Synth GPT →](https://github.com/GPTAlchemist/README-Synth)
 
 ---
