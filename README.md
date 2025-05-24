@@ -3,7 +3,7 @@
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-![Signal Drift](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm5xYWVhZDV0MGR3b2QyaXN6eGRjNmJ4M2F6cTRzd3J4YTZvdnE0YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KzJkzjggfGN5Py6zzd/giphy.gif)
+![Signal Drift](https://media.giphy.com/media/KzJkzjggfGN5Py6zzd/giphy.gif)
 
 > “You didn’t lose control. You lost clarity.” — The IdeaCrusher-9000
 
